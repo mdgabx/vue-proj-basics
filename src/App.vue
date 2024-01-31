@@ -7,7 +7,11 @@
   <input type="text" ref="name" />
   <button @click="handleClick">Click</button>
 
-  <ModalTest :header="header" :arr="[1,2,3,4]" theme="sale"/>
+  <div v-if="showModal">
+    <ModalTest :header="header" :arr="[1,2,3,4]" theme="sale" @close="toggleModal" />
+  </div>
+  <button @click="toggleModal">Show Modal</button>
+
 </template>
 
 <script>
@@ -22,14 +26,19 @@ export default {
   data() {
     return {
       title: 'TEst tislt',
-      header: 'Test my header'
+      header: 'Test my header',
+      showModal: false,
     }
   },
   methods: {
     handleClick() {
       this.$refs.name.classList.add('active')
       this.$refs.name.focus()
+    },
+    toggleModal() {
+      this.showModal = !this.showModal
     }
+
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="modalbg">
+    <div class="modalbg" @click.self="closeModal">
         <div class="modal" :class="{ sale: theme === 'sale' }">
             <h1>{{ header }}</h1>
             <p>modal content</p>
@@ -14,7 +14,12 @@
 
 <script>
     export default {
-        props: ['header', 'arr', 'theme']
+        props: ['header', 'arr', 'theme'],
+        methods: {
+            closeModal() {
+                this.$emit('close')
+            }
+        }
     }
     
 </script>
