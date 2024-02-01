@@ -8,9 +8,30 @@
   <button @click="handleClick">Click</button>
 
   <div v-if="showModal">
-    <ModalTest :header="header" :arr="[1,2,3,4]" theme="sale" @close="toggleModal" />
+    <!-- <ModalTest :header="header" :arr="[1,2,3,4]" theme="sale" @close="toggleModal" /> -->
+    <ModalTest>
+      <h1>Slot application</h1>
+      <template v-slot:links>
+        <p>slotted h1</p>
+      </template>
+    </ModalTest>
   </div>
+
+  <div v-if="showModal2">
+    <ModalTest @close="toggleModal2">
+      <template v-slot:modal2>
+        <p style="color: #111;">Modal 2</p>
+      </template>
+    </ModalTest>
+  </div>
+
+
+
+
   <button @click="toggleModal">Show Modal</button>
+
+  <button @click="toggleModal2">Show modal2</button>
+
 
 </template>
 
@@ -28,6 +49,7 @@ export default {
       title: 'TEst tislt',
       header: 'Test my header',
       showModal: false,
+      showModal2: false,
     }
   },
   methods: {
@@ -37,6 +59,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModal2() {
+      this.showModal2 = !this.showModal2
     }
 
   }

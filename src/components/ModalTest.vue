@@ -1,13 +1,19 @@
 <template>
     <div class="modalbg" @click.self="closeModal">
         <div class="modal" :class="{ sale: theme === 'sale' }">
-            <h1>{{ header }}</h1>
-            <p>modal content</p>
-            <ul>
+          <!-- <h1>{{ header }}</h1>
+            <p>modal content</p> -->
+            <!-- <ul>
                 <li v-for="i in arr" :key="i">
                     <p>{{ i }}</p>
                 </li>
-            </ul>
+            </ul> -->
+           <slot name="modal2">
+
+           </slot>
+            <slot name="links">
+
+            </slot>
         </div>
     </div>
 </template>
