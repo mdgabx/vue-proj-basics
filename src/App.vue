@@ -70,7 +70,7 @@ export default {
 
 <style>
 
-#app {
+#app, #modals {
  font-family: Consolas;
  margin: 0;
  padding: 0;
