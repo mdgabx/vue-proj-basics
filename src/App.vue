@@ -7,23 +7,23 @@
   <input type="text" ref="name" />
   <button @click="handleClick">Click</button>
 
-  <div v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
     <!-- <ModalTest :header="header" :arr="[1,2,3,4]" theme="sale" @close="toggleModal" /> -->
-    <ModalTest>
+    <ModalTest @close="toggleModal">
       <h1>Slot application</h1>
       <template v-slot:links>
         <p>slotted h1</p>
       </template>
     </ModalTest>
-  </div>
+  </teleport>
 
-  <div v-if="showModal2">
+  <teleport to="#modals" v-if="showModal2">
     <ModalTest @close="toggleModal2">
       <template v-slot:modal2>
         <p style="color: #111;">Modal 2</p>
       </template>
     </ModalTest>
-  </div>
+  </teleport>
 
 
 
